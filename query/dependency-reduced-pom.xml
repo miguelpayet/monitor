@@ -45,7 +45,7 @@
     </plugins>
   </build>
   <properties>
-    <mainClass>query.QueryApp</mainClass>
+    <mainClass>pe.net.sdp.query.QueryApp</mainClass>
   </properties>
 </project>
 

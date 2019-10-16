@@ -45,7 +45,7 @@
     </plugins>
   </build>
   <properties>
-    <mainClass>monitor.MonitorApp</mainClass>
+    <mainClass>pe.net.sdp.monitor.MonitorApp</mainClass>
   </properties>
 </project>
 
