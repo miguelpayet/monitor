@@ -23,7 +23,12 @@
 			<version>0.0</version>
 			<scope>compile</scope>
 		</dependency>
-	</dependencies>
+		<dependency>
+			<groupId>pe.net.sdp.monitor</groupId>
+			<artifactId>query</artifactId>
+			<version>0.0</version>
+			<scope>compile</scope>
+		</dependency>	</dependencies>
 
 	<build>
 		<plugins>

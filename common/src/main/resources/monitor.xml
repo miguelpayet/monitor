@@ -36,7 +36,7 @@
 		<servicio>
 			<nombre>dashboard</nombre>
 			<tipo>clase</tipo>
-			<direccion>pe.net.sdp.monitor.runner</direccion>
+			<direccion>pe.net.sdp.query.QueryRunner</direccion>
 			<puerto>0</puerto>
 			<frecuencia>frecuencia-10</frecuencia>
 			<notificacion>correo-1</notificacion>

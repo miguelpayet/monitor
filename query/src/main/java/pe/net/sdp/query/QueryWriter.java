@@ -47,7 +47,7 @@ class QueryWriter {
 	}
 
 	private Element crearDocumento() {
-		html = MyHtmlDocumentImpl.makeBasicHtmlDoc("pe/net/sdp/query");
+		html = MyHtmlDocumentImpl.makeBasicHtmlDoc("query");
 		Element head = (Element) html.getElementsByTagName("head").item(0);
 		Element estilo = html.createElement("link");
 		estilo.setAttribute("href", "/query.css");
