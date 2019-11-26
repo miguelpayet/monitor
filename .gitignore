@@ -14,5 +14,7 @@
 .mtj.tmp/
 dependency-reduced-pom.xml
 hs_err_pid*
+monitor.xml
+query.html
 target/
 target/*
