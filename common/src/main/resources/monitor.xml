@@ -26,13 +26,20 @@
 			<notificacion>correo-1</notificacion>
 		</servicio>
 		<servicio>
+<<<<<<< HEAD
 			<nombre>lunarumi</nombre>
 			<tipo>http</tipo>
 			<direccion>https://lunarumi.com</direccion>
+=======
+			<nombre>kusikusi</nombre>
+			<tipo>http</tipo>
+			<direccion>https://kusikusi.com.pe</direccion>
+>>>>>>> 702a070dbd2fd0c05ca46c0133a4457d58c0448e
 			<puerto>443</puerto>
 			<frecuencia>frecuencia-1</frecuencia>
 			<notificacion>correo-1</notificacion>
 		</servicio>
+<<<<<<< HEAD
 		<servicio>
 			<nombre>dashboard</nombre>
 			<tipo>clase</tipo>
@@ -41,17 +48,23 @@
 			<frecuencia>frecuencia-10</frecuencia>
 			<notificacion>correo-1</notificacion>
 		</servicio>
+=======
+>>>>>>> 702a070dbd2fd0c05ca46c0133a4457d58c0448e
 	</servicios>
 	<frecuencias>
 		<frecuencia>
 			<nombre>frecuencia-1</nombre>
 			<tipo>minuto</tipo>
+<<<<<<< HEAD
 			<cada>10</cada>
 		</frecuencia>
 		<frecuencia>
 			<nombre>frecuencia-10</nombre>
 			<tipo>minuto</tipo>
 			<cada>10</cada>
+=======
+			<cada>1</cada>
+>>>>>>> 702a070dbd2fd0c05ca46c0133a4457d58c0448e
 		</frecuencia>
 	</frecuencias>
 	<notificaciones>
