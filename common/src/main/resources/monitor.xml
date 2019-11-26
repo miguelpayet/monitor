@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<monitor>
+	<servicios>
+		<servicio>
+			<nombre>trazos</nombre>
+			<tipo>http</tipo>
+			<direccion>https://trazos.pe/</direccion>
+			<puerto>443</puerto>
+			<frecuencia>frecuencia-1</frecuencia>
+			<notificacion>correo-1</notificacion>
+		</servicio>
+		<servicio>
+			<nombre>web</nombre>
+			<tipo>http</tipo>
+			<direccion>https://web.sdp.net.pe</direccion>
+			<puerto>443</puerto>
+			<frecuencia>frecuencia-1</frecuencia>
+			<notificacion>correo-1</notificacion>
+		</servicio>
+		<servicio>
+			<nombre>blog</nombre>
+			<tipo>http</tipo>
+			<direccion>https://cuerpotaxi.in</direccion>
+			<puerto>443</puerto>
+			<frecuencia>frecuencia-1</frecuencia>
+			<notificacion>correo-1</notificacion>
+		</servicio>
+		<servicio>
+			<nombre>kusikusi</nombre>
+			<tipo>http</tipo>
+			<direccion>https://kusikusi.com.pe</direccion>
+			<puerto>443</puerto>
+			<frecuencia>frecuencia-1</frecuencia>
+			<notificacion>correo-1</notificacion>
+		</servicio>
+	</servicios>
+	<frecuencias>
+		<frecuencia>
+			<nombre>frecuencia-1</nombre>
+			<tipo>minuto</tipo>
+			<cada>1</cada>
+		</frecuencia>
+	</frecuencias>
+	<notificaciones>
+		<notificacion>
+			<nombre>correo-1</nombre>
+			<tipo>correo</tipo>
+			<direccion>miguel@sdp.net.pe</direccion>
+		</notificacion>
+	</notificaciones>
+	<basedatos>
+		<bd>
+			<conexion>jdbc:mysql://localhost:3306/monitor</conexion>
+			<usuario>monitor</usuario>
+			<password>monitor</password>
+		</bd>
+	</basedatos>
+	<queries>
+		<query>
+			<nombre>resumen</nombre>
+			<sql>select min(hora) as primero, max(hora) as ultimo, direccion,
+				round(avg(duracion_conexion),0) as conexion_promedio, max(duracion_conexion) as conexion_max,
+				min(duracion_conexion) as conexion_min,
+				round(avg(duracion_descarga+duracion_descarga_recursos),0) as descarga,
+				round(avg((select sum(tamaño) from medida as m2 where m1.direccion=m2.direccion and m1.hora=m2.hora)),0)
+					as tamaño, count(1)
+				from medida as m1 where direccion=nombre and response_code > 0 group by direccion order by 1
+			</sql>
+		</query>
+	</queries>
+</monitor>
