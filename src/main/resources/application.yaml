@@ -1,0 +1,60 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/monitor
+    username: monitor
+    password: monitor
+    hibernate:
+      ddl-auto: none
+logging:
+  # file: monitor.log
+  level:
+    pe.net.sdp: INFO
+    org.springframework: INFO
+monitor:
+  servicios:
+    - nombre: trazos
+      tipo: http
+      direccion: https://trazos.pe/
+      puerto: 443
+      frecuencia: frecuencia-1
+      notificacion: correo-1
+    - nombre: web
+      tipo: http
+      direccion: https://web.sdp.net.pe
+      puerto: 443
+      frecuencia: frecuencia-1
+      notificacion: correo-1
+    - nombre: blog
+      tipo: http
+      direccion: https://cuerpotaxi.in
+      puerto: 443
+      frecuencia: frecuencia-1
+      notificacion: correo-1
+    - nombre: kusikusi
+      tipo: http
+      direccion: https://kusikusi.com.pe
+      puerto: 443
+      frecuencia: frecuencia-1
+      notificacion: correo-1
+    - nombre: dashboard
+      tipo: clase
+      direccion: pe.net.sdp.query.QueryRunner
+      puerto: 0
+      frecuencia: frecuencia-1
+      notificacion: correo-1
+  frecuencias:
+    - nombre: frecuencia-1
+      tipo: minuto
+      cantidad: 10
+  notificaciones:
+    - nombre: correo-1
+      tipo: correo
+      direccion: miguel@sdp.net.pe
+  queries:
+    - nombre: resumen
+      sql: select min(hora) as primero, max(hora) as ultimo, direccion,
+        round(avg(duracion_conexion),0) as conexion_promedio, max(duracion_conexion) as conexion_max,
+        min(duracion_conexion) as conexion_min,
+        round(avg(duracion_descarga+duracion_descarga_recursos),0) as descarga,
+        round(avg((select sum(tamaño) from medida as m2 where m1.direccion=m2.direccion and m1.hora=m2.hora)),0) 					as tamaño, count(1)
+        from medida as m1 where direccion=nombre and response_code > 0 group by direccion order by 1
